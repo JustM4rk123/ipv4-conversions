@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ipv4-conversions"
+description = "Convert IPv4 addresses between dotted decimal and dotted binary notation"
+version = "0.1.0"
+requires-python = ">=3.10"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["ipv4", "binary", "decimal", "conversions"]
+authors = [
+    {name = "Marco S. Tornabene"}
+]
+dependencies = [
+    "bin-dec-conversions>=1.0.0",
+    "questionary",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/JustM4rk123/ipv4_conversions"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+ipv4-conversions = "ipv4_conversions.cli:main"
