@@ -45,7 +45,17 @@ ipv4-conversions --to-binary 192.168.1.1
 # The binary equivalent of 192.168.1.1 is: 11000000.10101000.00000001.00000001
 ```
 
-The short options are `-d` for `--to-decimal` and `-b` for `--to-binary`. The options are mutually exclusive. Running `ipv4-conversions` without options opens the interactive menu.
+The short options are `-d` for `--to-decimal` and `-b` for `--to-binary`. The options are mutually exclusive.
+
+For each option, you can insert one or more addresses, and the program will output multiple conversions. For example:
+
+```bash
+ipv4-conversions --to-binary 192.168.0.0 192.168.1.0
+The binary equivalent of 192.168.0.0 is: 11000000.10101000.00000000.00000000
+The binary equivalent of 192.168.1.0 is: 11000000.10101000.00000001.00000000
+```
+
+Running `ipv4-conversions` without options opens the interactive menu.
 
 ## Interactive menu
 
