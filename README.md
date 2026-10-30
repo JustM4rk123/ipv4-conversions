@@ -71,7 +71,8 @@ Choose **Binary address to dotted decimal** or **Dotted decimal to binary addres
 
 ```bash
 pip install -e ".[dev]"
-pytest
+python3 -m pytest
+ruff format
 ruff check .
 ```
 
