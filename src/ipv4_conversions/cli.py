@@ -13,6 +13,7 @@ def main():
         "-d",
         "--to-decimal",
         dest="to_decimal",
+        nargs="+",
         metavar="BINARY",
         type=str,
         help="Convert a binary IPv4 address to dotted-decimal notation",
@@ -21,6 +22,7 @@ def main():
         "-b",
         "--to-binary",
         dest="to_binary",
+        nargs="+",
         metavar="DECIMAL",
         type=str,
         help="Convert a dotted-decimal IPv4 address to binary",
@@ -29,17 +31,19 @@ def main():
     args = parser.parse_args()
 
     if args.to_decimal is not None:
-        try:
-            result = binary_to_ipv4(args.to_decimal)
-        except ValueError as e:
-            parser.error(str(e))
-        print(f"The dotted-decimal equivalent of {args.to_decimal} is: {result}")
+        for ip in args.to_decimal:
+            try:
+                result = binary_to_ipv4(ip)
+            except ValueError as e:
+                parser.error(str(e))
+            print(f"The dotted-decimal equivalent of {ip} is: {result}")
     elif args.to_binary is not None:
-        try:
-            result = ipv4_to_binary(args.to_binary)
-        except ValueError as e:
-            parser.error(str(e))
-        print(f"The binary equivalent of {args.to_binary} is: {result}")
+        for ip in args.to_binary:
+            try:
+                result = ipv4_to_binary(ip)
+            except ValueError as e:
+                parser.error(str(e))
+            print(f"The binary equivalent of {ip} is: {result}")
     else:
         conversion = questionary.select(
             "Which conversion do you want to perform?",
