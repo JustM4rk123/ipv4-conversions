@@ -27,11 +27,7 @@ def main():
         type=str,
         help="Convert a dotted-decimal IPv4 address to binary",
     )
-    parser.add_argument(
-        "-s",
-        "--short",
-        action="store_true"
-    )
+    parser.add_argument("-s", "--short", action="store_true")
 
     args = parser.parse_args()
 
