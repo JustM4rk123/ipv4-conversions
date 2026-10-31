@@ -51,8 +51,14 @@ For each option, you can insert one or more addresses, and the program will outp
 
 ```bash
 ipv4-conversions --to-binary 192.168.0.0 192.168.1.0
-The binary equivalent of 192.168.0.0 is: 11000000.10101000.00000000.00000000
-The binary equivalent of 192.168.1.0 is: 11000000.10101000.00000001.00000000
+# The binary equivalent of 192.168.0.0 is: 11000000.10101000.00000000.00000000
+# The binary equivalent of 192.168.1.0 is: 11000000.10101000.00000001.00000000
+```
+
+Also, you can shorten the output to the sole result with '-s' or '--short' flag:
+```bash
+ipv4-conversions --to-binary 192.168.0.1 --short
+# 11000000.10101000.00000000.00000001
 ```
 
 Running `ipv4-conversions` without options opens the interactive menu.

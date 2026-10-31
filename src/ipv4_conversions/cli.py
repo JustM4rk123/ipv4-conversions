@@ -27,6 +27,11 @@ def main():
         type=str,
         help="Convert a dotted-decimal IPv4 address to binary",
     )
+    parser.add_argument(
+        "-s",
+        "--short",
+        action="store_true"
+    )
 
     args = parser.parse_args()
 
@@ -36,14 +41,20 @@ def main():
                 result = binary_to_ipv4(ip)
             except ValueError as e:
                 parser.error(str(e))
-            print(f"The dotted-decimal equivalent of {ip} is: {result}")
+                if not args.short:
+                    print(f"The dotted-decimal equivalent of {ip} is: {result}")
+                else:
+                    print(result)
     elif args.to_binary is not None:
         for ip in args.to_binary:
             try:
                 result = ipv4_to_binary(ip)
             except ValueError as e:
                 parser.error(str(e))
-            print(f"The binary equivalent of {ip} is: {result}")
+            if not args.short:
+                print(f"The dotted-decimal equivalent of {ip} is: {result}")
+            else:
+                print(result)
     else:
         conversion = questionary.select(
             "Which conversion do you want to perform?",
